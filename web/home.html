@@ -609,7 +609,7 @@
             const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
             const uid = userCredential.user.uid;
             
-            let startingBalance = (email === 'asaj9016@gmail.com' || email === 'brayden20@gmail.com' || email === 'joshua45@gmail.com') ? 50 : 0;
+            let startingBalance = (email === 'asaj9016@gmail.com' || email === 'brayden20@gmail.com') ? 150 : 0;
 
             await setDoc(doc(db, "UserProfiles", uid), {
                 uid: uid, email_address: email, username: username, country: country,
